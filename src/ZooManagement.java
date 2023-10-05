@@ -11,7 +11,7 @@ public class ZooManagement {
         Zoo myZoo = new Zoo();
         myZoo.name = "Wildlife Park";
         myZoo.city = "Ariana";
-        myZoo.nbrCages = 25;
+//        myZoo.nbrCages = 25;
         myZoo.animals = new Animal[25];
 
 
