@@ -1,10 +1,53 @@
 public class Zoo {
 
-    Animal[] animals;
-    String name, city;
-    final int nbrCages = 25;
+    private Animal[] animals;
+    private  String name, city;
+    private final int nbrCages = 25;
 
-    int nbrAnimals;
+    private int nbrAnimals;
+
+
+    public Animal[] getAnimals() {
+        return animals;
+    }
+
+    public void setAnimals(Animal[] animals) {
+        this.animals = animals;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        if (name.isEmpty())
+        {
+            System.out.println("donner un nom");
+        }
+        else {
+            this.name = name;
+        }
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public int getNbrCages() {
+        return nbrCages;
+    }
+
+    public int getNbrAnimals() {
+        return nbrAnimals;
+    }
+
+    public void setNbrAnimals(int nbrAnimals) {
+        this.nbrAnimals = nbrAnimals;
+    }
 
     public Zoo() {
     }
@@ -23,10 +66,15 @@ public class Zoo {
     boolean addAnimal(Animal animal) {
         if (searchAnimal(animal) != -1)
             return false;
-        if (nbrAnimals == nbrCages)
-            return false;
-        animals[nbrAnimals] = animal;
-        nbrAnimals++;
+//        if (nbrAnimals == nbrCages)
+       //     return false;
+        if (isZooFull()==false) {
+            animals[nbrAnimals] = animal;
+            nbrAnimals++;
+        }
+            else {
+            System.out.println("the Zoo is full");
+        }
         return true;
     }
 
@@ -53,7 +101,7 @@ public class Zoo {
     int searchAnimal(Animal animal) {
         int index = -1;
         for (int i = 0; i < nbrAnimals; i++) {
-            if (animal.name == animals[i].name)
+            if (animal.getName() == animals[i].getName())
                 return i;
         }
         return index;
@@ -84,4 +132,6 @@ public class Zoo {
             return z1;
         }
     }
+
+
 }
